@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+
+  "name": "Zoom Downloader",
+  "description": "Download videos from zoom",
+  "version": "1.0",
+	"icons": {
+		"128": "icon.png"
+	},
+  "action": {
+   "default_popup": "popup.html"
+  },
+  "host_permissions": ["*://*/*"],
+  "permissions": [ "cookies", "declarativeContent", "tabs", "history", "downloads", "scripting",
+        "activeTab",
+        "storage" ]
+}
