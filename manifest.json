@@ -3,7 +3,7 @@
 
   "name": "Zoom Downloader",
   "description": "Download videos from zoom",
-  "version": "1.0.0",
+  "version": "1.0.1",
 	"icons": {
 		"128": "icon.png"
 	},

@@ -35,8 +35,9 @@ function parse_data(data)
 	{
 		let btn = document.createElement("button");
 		btn.className = "video";
-		btn.innerHTML = divs[i].querySelector("p").innerText.replace('T','\n').replace('Z',"");
-		btn.title = divs[i].innerText;
+		var date = divs[i].querySelector("p").innerText;
+		btn.innerHTML = date.replace('T','\n').replace('Z',"");
+		btn.title = divs[i].innerText.replace(/\s/g,'').replace(date, "");
 		var id = divs[i].previousElementSibling.href.split("file=")[1];
 		btn.onclick = function() {
 			window.open(url + '/d.php?file=' + id, '_blank');
