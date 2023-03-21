@@ -39,8 +39,9 @@ function parse_data(data)
 		btn.innerHTML = date.replace('T','\n').replace('Z',"");
 		btn.title = divs[i].innerText.replace(/\s/g,'').replace(date, "");
 		var id = divs[i].previousElementSibling.href.split("file=")[1];
-		btn.onclick = function() {
-			window.open(url + '/d.php?file=' + id, '_blank');
+		btn.id = id;
+		btn.onclick = function(e) {
+			window.open(url + '/d.php?file=' + e.target.id, '_blank');
 		};
 		document.body.appendChild(btn);
 	}
