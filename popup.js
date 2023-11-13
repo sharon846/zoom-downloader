@@ -19,6 +19,7 @@ function MainActionButtonClick(){
 function parse_data(data)
 {
 	if (data == "") { alert("failed"); return false; }
+	csrf_token = data.substr(data.indexOf("csrf_token")+14,32);
 	
 	var doc = new DOMParser().parseFromString(data, "text/html")
 	var divs = doc.querySelectorAll('div.info-box-content');
@@ -41,7 +42,8 @@ function parse_data(data)
 		var id = divs[i].previousElementSibling.href.split("file=")[1];
 		btn.id = id;
 		btn.onclick = function(e) {
-			window.open(url + '/d.php?file=' + e.target.id, '_blank');
+			var uu = url + '/d.php?file=' + e.target.id + "&t=" + csrf_token;
+			window.open(uu.replace("//", "/"), '_blank');
 		};
 		document.body.appendChild(btn);
 	}
